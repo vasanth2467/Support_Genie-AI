@@ -1,0 +1,251 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SupportGenie AI – Customer Support Resolution Assistant</title>
+    <link rel="stylesheet" href="/static/css/styles.css">
+    <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>🧞</text></svg>">
+</head>
+<body>
+    <!-- Top Header -->
+    <header>
+        <div class="brand-container">
+            <div class="brand-logo">🧞</div>
+            <div>
+                <div class="brand-title">SupportGenie AI</div>
+                <div class="brand-subtitle">PS04 – Customer Operations Resolution Assistant</div>
+            </div>
+        </div>
+
+        <div class="header-controls">
+            <!-- Demo Persona Switcher -->
+            <div class="persona-select-container">
+                <label for="personaSelect">Simulated Persona:</label>
+                <select id="personaSelect" class="persona-select">
+                    <option value="CUST-1001" selected>1. John Doe – Fibre ONT Red Optical Light (CUST-1001)</option>
+                    <option value="CUST-1002">2. Sarah Jenkins – Routine Slow Speeds (CUST-1002)</option>
+                    <option value="CUST-1003">3. Maria Rodriguez – $35 Pay-Per-View Dispute (Auto-Credit)</option>
+                    <option value="CUST-1004">4. David Chen – $140 Roaming Dispute (Escalates to Human)</option>
+                    <option value="CUST-1005">5. Elena Rostova – Mobile eSIM Setup & Missing Slots</option>
+                    <option value="CUST-1006">6. Marcus Vance – Deterministic Area Outage Intercept</option>
+                </select>
+            </div>
+
+            <!-- Nav Tabs -->
+            <nav class="nav-tabs">
+                <button class="tab-btn active" data-view="chat-view">
+                    <span>💬 Customer Portal</span>
+                </button>
+                <button class="tab-btn" data-view="tickets-view">
+                    <span>🛡️ Agent Ops Queue</span>
+                    <span id="ticketCountBadge" class="badge-count" style="display:none;">0</span>
+                </button>
+                <button class="tab-btn" data-view="kb-view">
+                    <span>📚 Knowledge Base</span>
+                </button>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Main Workspace Views -->
+    <main class="main-content">
+        <!-- 1. Customer Chat & Telemetry View -->
+        <section id="chat-view" class="view-section active">
+            <!-- Left: Chat Stream -->
+            <div class="chat-container">
+                <div class="chat-header">
+                    <div>
+                        <strong id="chatCustomerName">John Doe</strong>
+                        <span id="chatAccountSub" style="font-size:12px; color:var(--text-muted); margin-left:8px;">UltraFibre 500Mbps</span>
+                    </div>
+                    <div class="chat-status-pill">
+                        <span class="status-dot"></span>
+                        <span id="chatSessionStatus">AI Assistant Ready</span>
+                    </div>
+                </div>
+
+                <div id="chatHistory" class="chat-history">
+                    <!-- Messages dynamically injected -->
+                </div>
+
+                <!-- Quick Suggested Replies -->
+                <div id="quickReplies" class="quick-replies">
+                    <!-- Quick action buttons -->
+                </div>
+
+                <!-- Input Area -->
+                <div class="chat-input-area">
+                    <input type="text" id="chatInput" class="chat-input" placeholder="Type your inquiry or select a scenario below..." autocomplete="off">
+                    <button id="sendBtn" class="send-btn">Send</button>
+                </div>
+            </div>
+
+            <!-- Right: Account & Telemetry Sidebar -->
+            <aside class="sidebar-container">
+                <!-- Customer Account Card -->
+                <div class="dash-card">
+                    <div class="dash-card-header">
+                        <span class="dash-card-title">Customer Profile & Account</span>
+                        <span id="verificationBadge" class="status-badge ok">VERIFIED</span>
+                    </div>
+                    <div class="info-grid">
+                        <div class="info-item">
+                            <span class="info-label">Customer ID</span>
+                            <span id="dashCustomerId" class="info-value">CUST-1001</span>
+                        </div>
+                        <div class="info-item">
+                            <span class="info-label">Account No.</span>
+                            <span id="dashAccountId" class="info-value">ACC-2001</span>
+                        </div>
+                        <div class="info-item">
+                            <span class="info-label">Active Plan</span>
+                            <span id="dashPlanName" class="info-value">UltraFibre 500Mbps</span>
+                        </div>
+                        <div class="info-item">
+                            <span class="info-label">Monthly Rate</span>
+                            <span id="dashMonthlyRate" class="info-value">$65.00/mo</span>
+                        </div>
+                        <div class="info-item">
+                            <span class="info-label">Current Balance</span>
+                            <span id="dashBalanceDue" class="info-value" style="color:var(--accent-green);">$0.00</span>
+                        </div>
+                        <div class="info-item">
+                            <span class="info-label">Roaming Status</span>
+                            <span id="dashRoaming" class="info-value">Disabled</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Line & Telemetry Health Card -->
+                <div class="dash-card">
+                    <div class="dash-card-header">
+                        <span class="dash-card-title">Live Hardware Telemetry</span>
+                        <span style="font-size:11px; color:var(--text-muted);">Real-time Ground Truth</span>
+                    </div>
+                    <div>
+                        <div class="telemetry-row">
+                            <span class="info-label">Modem / Gateway Status</span>
+                            <span id="telModemStatus" class="status-badge critical">OFFLINE</span>
+                        </div>
+                        <div class="telemetry-row">
+                            <span class="info-label">Optical Rx Power</span>
+                            <span id="telOpticalPower" class="status-badge critical">-28.5 dBm</span>
+                        </div>
+                        <div class="telemetry-row">
+                            <span class="info-label">Optical LOS Alarm</span>
+                            <span id="telLosAlarm" class="status-badge critical">ACTIVE (RED)</span>
+                        </div>
+                        <div class="telemetry-row">
+                            <span class="info-label">Regional Trunk Outage</span>
+                            <span id="telAreaOutage" class="status-badge ok">NO OUTAGE</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Interactive Telemetry Simulation Controls -->
+                <div class="dash-card">
+                    <div class="dash-card-header">
+                        <span class="dash-card-title">Demo Telemetry Simulator</span>
+                        <span style="font-size:10px; color:var(--accent-indigo);">Live Testing</span>
+                    </div>
+                    <div class="sim-controls">
+                        <button class="sim-btn" onclick="simulateTelemetry({modem_online: false, optical_rx_power_dbm: -28.5, optical_los_alarm: true, area_outage_detected: false})">
+                            <span>🔴 Simulate Fiber Cut (Red LOS Light)</span>
+                            <span style="font-size:11px;">-28.5 dBm</span>
+                        </button>
+                        <button class="sim-btn" onclick="simulateTelemetry({area_outage_detected: true, area_outage_eta: 'Today at 3:00 PM'})">
+                            <span>⚠️ Simulate Regional Trunk Outage</span>
+                            <span style="font-size:11px;">Area Node</span>
+                        </button>
+                        <button class="sim-btn" onclick="simulateTelemetry({modem_online: true, optical_rx_power_dbm: -19.2, optical_los_alarm: false, area_outage_detected: false})">
+                            <span>🟢 Restore Healthy Telemetry</span>
+                            <span style="font-size:11px;">-19.2 dBm</span>
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Quick Prompt Presets -->
+                <div class="dash-card">
+                    <div class="dash-card-header">
+                        <span class="dash-card-title">Judging Scenario Starters</span>
+                    </div>
+                    <div class="sim-controls">
+                        <button class="sim-btn" onclick="sendPresetMessage('My internet is completely down. The fiber box has a blinking red light on it.')">
+                            <span>1. ONT Red Optical Alarm</span>
+                        </button>
+                        <button class="sim-btn" onclick="sendPresetMessage('Why is my internet not working right now?')">
+                            <span>2. Area Outage Check</span>
+                        </button>
+                        <button class="sim-btn" onclick="sendPresetMessage('I see an accidental $35 data overage charge on my bill. Can I get a refund credit?')">
+                            <span>3. $35 Dispute (Auto-Approved)</span>
+                        </button>
+                        <button class="sim-btn" onclick="sendPresetMessage('I was incorrectly billed $140 for roaming in Mexico and want it removed.')">
+                            <span>4. $140 Dispute (Escalates)</span>
+                        </button>
+                        <button class="sim-btn" onclick="sendPresetMessage('I need help installing my new eSIM profile on my iPhone 15.')">
+                            <span>5. eSIM Mobile Activation</span>
+                        </button>
+                        <button class="sim-btn" onclick="sendPresetMessage('I want to speak directly to a human agent right now.')">
+                            <span>6. Explicit Human Handover</span>
+                        </button>
+                    </div>
+                </div>
+            </aside>
+        </section>
+
+        <!-- 2. Human Agent Escalation Queue -->
+        <section id="tickets-view" class="view-section">
+            <div class="tickets-container">
+                <div class="tickets-header">
+                    <div>
+                        <h2>Human Specialist Escalation Queue</h2>
+                        <p style="color:var(--text-muted); font-size:13px;">Review AI-generated handover briefings and take immediate operator action without customer repetition.</p>
+                    </div>
+                    <button class="tab-btn" onclick="loadTickets()">🔄 Refresh Queue</button>
+                </div>
+                <div id="ticketsGrid" class="tickets-grid">
+                    <!-- Ticket cards injected here -->
+                </div>
+            </div>
+        </section>
+
+        <!-- 3. Knowledge Base Explorer -->
+        <section id="kb-view" class="view-section">
+            <div class="tickets-container">
+                <div class="tickets-header">
+                    <div>
+                        <h2>Local Knowledge Base Articles</h2>
+                        <p style="color:var(--text-muted); font-size:13px;">Grounded telecom standard operating procedures, financial thresholds, and troubleshooting guides.</p>
+                    </div>
+                    <div style="display:flex; gap:10px;">
+                        <input type="text" id="kbSearchInput" class="chat-input" placeholder="Search KB articles..." style="width:250px; padding:8px 12px;">
+                        <button class="send-btn" onclick="searchKnowledgeBase()">Search</button>
+                    </div>
+                </div>
+                <div id="kbGrid" class="tickets-grid">
+                    <!-- KB cards injected here -->
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Evidence & Citation Modal -->
+    <div id="evidenceModal" class="modal-overlay">
+        <div class="modal-card">
+            <div class="modal-header">
+                <div>
+                    <h3 id="modalTitle">Citation Evidence</h3>
+                    <span id="modalMeta" style="font-size:12px; color:var(--text-muted);">Source Verification</span>
+                </div>
+                <button class="modal-close" onclick="closeModal()">&times;</button>
+            </div>
+            <div id="modalBody" class="modal-body">
+                <!-- Citation details -->
+            </div>
+        </div>
+    </div>
+
+    <script src="/static/js/app.js"></script>
+</body>
+</html>

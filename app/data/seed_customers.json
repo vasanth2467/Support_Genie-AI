@@ -1,0 +1,182 @@
+[
+  {
+    "customer_id": "CUST-1001",
+    "full_name": "John Doe",
+    "email": "john.doe@example.com",
+    "phone": "+1-555-0101",
+    "address": "742 Evergreen Terrace, Springfield",
+    "verification_status": "VERIFIED",
+    "account": {
+      "account_id": "ACC-2001",
+      "plan_name": "UltraFibre 500Mbps",
+      "category": "BROADBAND",
+      "monthly_rate": 65.00,
+      "balance_due": 0.00,
+      "billing_cycle_day": 15,
+      "status": "ACTIVE",
+      "data_limit_gb": -1.0,
+      "data_used_gb": 142.4,
+      "roaming_enabled": false
+    },
+    "telemetry": {
+      "modem_online": false,
+      "optical_rx_power_dbm": -28.5,
+      "optical_los_alarm": true,
+      "router_ip": "192.168.1.1",
+      "area_outage_detected": false,
+      "area_outage_eta": null,
+      "last_reboot_timestamp": "2026-03-05 08:30:00"
+    },
+    "demo_tag": "BROADBAND_RED_LIGHT"
+  },
+  {
+    "customer_id": "CUST-1002",
+    "full_name": "Sarah Jenkins",
+    "email": "sarah.j@example.com",
+    "phone": "+1-555-0102",
+    "address": "1204 Pine Valley Rd, Springfield",
+    "verification_status": "VERIFIED",
+    "account": {
+      "account_id": "ACC-2002",
+      "plan_name": "Gigabit Pro 1Gbps",
+      "category": "BROADBAND",
+      "monthly_rate": 85.00,
+      "balance_due": 0.00,
+      "billing_cycle_day": 1,
+      "status": "ACTIVE",
+      "data_limit_gb": -1.0,
+      "data_used_gb": 380.1,
+      "roaming_enabled": false
+    },
+    "telemetry": {
+      "modem_online": true,
+      "optical_rx_power_dbm": -19.2,
+      "optical_los_alarm": false,
+      "router_ip": "192.168.1.1",
+      "area_outage_detected": false,
+      "area_outage_eta": null,
+      "last_reboot_timestamp": "2026-03-01 10:00:00"
+    },
+    "demo_tag": "ROUTINE_SLOW_SPEED"
+  },
+  {
+    "customer_id": "CUST-1003",
+    "full_name": "Maria Rodriguez",
+    "email": "maria.r@example.com",
+    "phone": "+1-555-0103",
+    "address": "458 Maple Ave, Springfield",
+    "verification_status": "VERIFIED",
+    "account": {
+      "account_id": "ACC-2003",
+      "plan_name": "UltraFibre + TV Entertainment",
+      "category": "BUNDLE",
+      "monthly_rate": 95.00,
+      "balance_due": 35.00,
+      "billing_cycle_day": 5,
+      "status": "ACTIVE",
+      "data_limit_gb": -1.0,
+      "data_used_gb": 210.0,
+      "roaming_enabled": false
+    },
+    "telemetry": {
+      "modem_online": true,
+      "optical_rx_power_dbm": -18.8,
+      "optical_los_alarm": false,
+      "router_ip": "192.168.1.1",
+      "area_outage_detected": false,
+      "area_outage_eta": null,
+      "last_reboot_timestamp": "2026-02-28 14:20:00"
+    },
+    "demo_tag": "BILLING_AUTO_CREDIT"
+  },
+  {
+    "customer_id": "CUST-1004",
+    "full_name": "David Chen",
+    "email": "david.chen@example.com",
+    "phone": "+1-555-0104",
+    "address": "88 Ocean Drive, Springfield",
+    "verification_status": "VERIFIED",
+    "account": {
+      "account_id": "ACC-2004",
+      "plan_name": "5G Unlimited Max",
+      "category": "MOBILE",
+      "monthly_rate": 75.00,
+      "balance_due": 140.00,
+      "billing_cycle_day": 20,
+      "status": "ACTIVE",
+      "data_limit_gb": 50.0,
+      "data_used_gb": 48.2,
+      "roaming_enabled": true
+    },
+    "telemetry": {
+      "modem_online": true,
+      "optical_rx_power_dbm": -20.0,
+      "optical_los_alarm": false,
+      "router_ip": null,
+      "area_outage_detected": false,
+      "area_outage_eta": null,
+      "last_reboot_timestamp": null
+    },
+    "demo_tag": "BILLING_HIGH_DISPUTE_ESCALATE"
+  },
+  {
+    "customer_id": "CUST-1005",
+    "full_name": "Elena Rostova",
+    "email": "elena.r@example.com",
+    "phone": "+1-555-0105",
+    "address": "312 Birch Court, Springfield",
+    "verification_status": "VERIFIED",
+    "account": {
+      "account_id": "ACC-2005",
+      "plan_name": "5G Mobile Flex",
+      "category": "MOBILE",
+      "monthly_rate": 45.00,
+      "balance_due": 0.00,
+      "billing_cycle_day": 12,
+      "status": "ACTIVE",
+      "data_limit_gb": 20.0,
+      "data_used_gb": 2.1,
+      "roaming_enabled": false
+    },
+    "telemetry": {
+      "modem_online": true,
+      "optical_rx_power_dbm": -20.0,
+      "optical_los_alarm": false,
+      "router_ip": null,
+      "area_outage_detected": false,
+      "area_outage_eta": null,
+      "last_reboot_timestamp": null
+    },
+    "demo_tag": "MOBILE_ESIM_SETUP"
+  },
+  {
+    "customer_id": "CUST-1006",
+    "full_name": "Marcus Vance",
+    "email": "marcus.v@example.com",
+    "phone": "+1-555-0106",
+    "address": "901 Oak Ridge Way, Springfield",
+    "verification_status": "VERIFIED",
+    "account": {
+      "account_id": "ACC-2006",
+      "plan_name": "Starter Fibre 100Mbps",
+      "category": "BROADBAND",
+      "monthly_rate": 45.00,
+      "balance_due": 0.00,
+      "billing_cycle_day": 1,
+      "status": "ACTIVE",
+      "data_limit_gb": -1.0,
+      "data_used_gb": 85.0,
+      "roaming_enabled": false
+    },
+    "telemetry": {
+      "modem_online": false,
+      "optical_rx_power_dbm": -99.0,
+      "optical_los_alarm": true,
+      "router_ip": null,
+      "area_outage_detected": true,
+      "area_outage_eta": "Today at 2:00 PM (Local Time)",
+      "last_reboot_timestamp": "2026-03-05 06:15:00"
+    },
+    "demo_tag": "AREA_OUTAGE_INTERCEPT"
+  }
+]
